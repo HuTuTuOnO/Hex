@@ -27,7 +27,7 @@ modifyXrayRDnsAddress() {
         newDnsAddress=$2
     fi
     
-    sed -i 's///d' /etc/XrayR/dns.json
+    sed -i 's/${oldDnsAddress}/${newDnsAddress}/d' /etc/XrayR/dns.json
 
     echo -e "替换XrayRDNS解锁地址 ${green}修改成功，请稍等重启生效${plain}"
 
