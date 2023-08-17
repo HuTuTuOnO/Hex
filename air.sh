@@ -70,14 +70,21 @@ menu() {
     esac
 }
 
-action=$1
-[[ -z $1 ]] && action=menu
-case "$action" in
-    menu|UpdateXrayRDnsAddress)
-        ${action}
+if [[ $# > 0 ]]; then
+    case $1 in
+        "UpdateXrayRDnsAddress")
+            shift
+            if [ $# -ge 3 ]; then
+                UpdateXrayRDnsAddress "$@"
+            else
+                UpdateXrayRDnsAddress 0
+            fi
         ;;
-    *)
-        echo " 参数错误"
-        echo " 用法: `basename $0` [menu|update|uninstall|start|restart|stop|showInfo|showLog]"
+        *)
+            echo " 参数错误"
+            echo " 用法: `basename $0` [menu|update|uninstall|start|restart|stop|showInfo|showLog]"
         ;;
-esac
+    esac
+else
+    menu
+fi
