@@ -9,6 +9,20 @@ plain='\033[0m'
 
 [[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] 请使用root用户来执行脚本!" && exit 1
 
+if [[ $# = 1 ]];then
+    key="$1"
+    case $key in
+        -i|--install)
+        help
+        ;;
+        -h|--help|*)
+        help
+        ;;
+    esac
+else
+    help
+fi
+
 hello(){
     echo ""
     echo -e "${yellow}VMSSR AIR脚本${plain}"
@@ -19,3 +33,4 @@ hello(){
 help(){
     hello
 }
+
