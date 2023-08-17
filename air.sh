@@ -45,10 +45,10 @@ colorEcho() {
 
 menu() {
     clear
-    echo "#############################################################"
-    echo -e "#                   ${RED}VMSSR 多功能机场脚本${PLAIN}        #"
+    echo "############################################################"
+    echo -e "#                   ${RED}VMSSR 多功能机场脚本${PLAIN}    #"
     echo -e "# ${GREEN}作者${PLAIN}: HuTuTu                           #"
-    echo -e "# ${GREEN}网址${PLAIN}: https://www.vmssr.co                 #"
+    echo -e "# ${GREEN}网址${PLAIN}: https://www.vmssr.co             #"
     echo "#############################################################"
 
     echo -e "  ${GREEN}1.${PLAIN}   替换XrayR DNS解锁地址"
