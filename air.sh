@@ -71,7 +71,7 @@ modifyXrayRDnsAddress() {
 
 beforeShowMenu() {
     echo && echo -n -e "${yellow}* 按回车返回主菜单 *${plain}" && read temp
-    show_menu
+    showMenu
 }
 
 showMenu() {
