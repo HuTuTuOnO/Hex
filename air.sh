@@ -44,7 +44,7 @@ colorEcho() {
 }
 
 UpdateXrayRDnsAddress{
-
+    sed -i 's///d' /etc/XrayR/dns.json
 }
 
 menu() {
