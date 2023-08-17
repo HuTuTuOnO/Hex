@@ -43,7 +43,7 @@ colorEcho() {
     echo -e "${1}${@:2}${PLAIN}"
 }
 
-modifyXrayRDnsAddress{
+modifyXrayRDnsAddress() {
     echo -e "> 替换XrayRDNS解锁地址"
         if [ $# -lt 2 ]; then
         read -ep "请输入原DNS地址: " oldDnsAddress &&
