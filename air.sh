@@ -16,3 +16,6 @@ hello(){
     echo ""
 }
 
+help(){
+    hello
+}
