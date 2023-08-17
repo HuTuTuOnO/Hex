@@ -56,7 +56,7 @@ showMenu() {
     echo -e "  ${GREEN}0.${PLAIN}   退出"
     read -p " 请选择操作[0-17]：" answer
     case $answer in
-        0)
+        1)
             modifyXrayRDnsAddress 0
             exit 0
             ;;
