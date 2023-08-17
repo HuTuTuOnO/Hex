@@ -43,6 +43,10 @@ colorEcho() {
     echo -e "${1}${@:2}${PLAIN}"
 }
 
+UpdateXrayRDnsAddress{
+
+}
+
 menu() {
     clear
     echo "############################################################"
@@ -69,7 +73,7 @@ menu() {
 action=$1
 [[ -z $1 ]] && action=menu
 case "$action" in
-    menu)
+    menu|UpdateXrayRDnsAddress)
         ${action}
         ;;
     *)
