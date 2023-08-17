@@ -43,11 +43,38 @@ colorEcho() {
     echo -e "${1}${@:2}${PLAIN}"
 }
 
-UpdateXrayRDnsAddress{
+modifyXrayRDnsAddress{
+    echo -e "> 替换XrayRDNS解锁地址"
+        if [ $# -lt 2 ]; then
+        read -ep "请输入原DNS地址: " oldDnsAddress &&
+        read -ep "请输入新DNS地址: " newDnsAddress &&
+        if [[ -z "${oldDnsAddress}" || -z "${newDnsAddress}" ]]; then
+            echo -e "${red}所有选项都不能为空${plain}"
+            beforeShowMenu
+            return 1
+        fi
+    else
+        oldDnsAddress=$1
+        newDnsAddress=$2
+    fi
+    
     sed -i 's///d' /etc/XrayR/dns.json
+
+    echo -e "替换XrayRDNS解锁地址 ${green}修改成功，请稍等重启生效${plain}"
+
+    XrayR restart
+
+    if [[ $# == 0 ]]; then
+        beforeShowMenu
+    fi
 }
 
-menu() {
+beforeShowMenu() {
+    echo && echo -n -e "${yellow}* 按回车返回主菜单 *${plain}" && read temp
+    show_menu
+}
+
+showMenu() {
     clear
     echo "############################################################"
     echo -e "# ${RED}VMSSR 多功能机场脚本${PLAIN}"
@@ -61,7 +88,7 @@ menu() {
     read -p " 请选择操作[0-17]：" answer
     case $answer in
         0)
-            UpdateXrayRDnsAddress
+            modifyXrayRDnsAddress 0
             exit 0
             ;;
         *)
@@ -73,12 +100,12 @@ menu() {
 
 if [[ $# > 0 ]]; then
     case $1 in
-        "UpdateXrayRDnsAddress")
+        "modifyXrayRDnsAddress")
             shift
-            if [ $# -ge 3 ]; then
-                UpdateXrayRDnsAddress "$@"
+            if [ $# -ge 2 ]; then
+                modifyXrayRDnsAddress "$@"
             else
-                UpdateXrayRDnsAddress 0
+                modifyXrayRDnsAddress 0
             fi
         ;;
         *)
@@ -87,5 +114,5 @@ if [[ $# > 0 ]]; then
         ;;
     esac
 else
-    menu
+    showMenu
 fi
