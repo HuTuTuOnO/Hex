@@ -61,6 +61,7 @@ menu() {
     read -p " 请选择操作[0-17]：" answer
     case $answer in
         0)
+            UpdateXrayRDnsAddress
             exit 0
             ;;
         *)
