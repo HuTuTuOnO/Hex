@@ -29,7 +29,7 @@ modifyXrayRConfig() {
     
     sed -i "s/$oldText/$newText/" /etc/XrayR/config.yml
 
-    echo -e "替换XrayRDNS解锁地址 ${green}修改成功，请稍等重启生效${plain}"
+    echo -e "替换XrayR-CONFIG配置 ${green}修改成功，请稍等重启生效${plain}"
 
     XrayR restart
 
@@ -55,7 +55,7 @@ modifyXrayRDns() {
     
     sed -i "s/$oldText/$newText/" /etc/XrayR/dns.json
 
-    echo -e "替换XrayRDNS解锁地址 ${green}修改成功，请稍等重启生效${plain}"
+    echo -e "替换XrayR-DNS配置 ${green}修改成功，请稍等重启生效${plain}"
 
     XrayR restart
 
