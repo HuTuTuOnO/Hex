@@ -12,6 +12,32 @@ colorEcho() {
     echo -e "${1}${@:2}${PLAIN}"
 }
 
+modifyXrayRConfig() {
+    echo -e "> 替换XrayR-Config配置"
+        if [ $# -lt 2 ]; then
+        read -ep "请输入原DNS地址: " oldText &&
+        read -ep "请输入新DNS地址: " oldText &&
+        if [[ -z "${oldDnsAddress}" || -z "${newDnsAddress}" ]]; then
+            echo -e "${red}所有选项都不能为空${plain}"
+            beforeShowMenu
+            return 1
+        fi
+    else
+        oldDnsAddress=$1
+        newDnsAddress=$2
+    fi
+    
+    sed -i "s/$oldDnsAddress/$newDnsAddress/" /etc/XrayR/dns.json
+
+    echo -e "替换XrayRDNS解锁地址 ${green}修改成功，请稍等重启生效${plain}"
+
+    XrayR restart
+
+    if [[ $# == 0 ]]; then
+        beforeShowMenu
+    fi
+}
+
 modifyXrayRDnsAddress() {
     echo -e "> 替换XrayRDNS解锁地址"
         if [ $# -lt 2 ]; then
