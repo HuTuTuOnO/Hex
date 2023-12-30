@@ -1,6 +1,6 @@
 #!/bin/bash
-# VMSSR 多功能机场脚本
-# Author: HuTuTu<https://www.vmssr.co/>
+# Hex 多功能机场脚本
+# Author: HuTu<https://www.hu.tu/>
 
 RED="\033[31m"      # Error message
 GREEN="\033[32m"    # Success message
@@ -46,9 +46,9 @@ beforeShowMenu() {
 showMenu() {
     clear
     echo "############################################################"
-    echo -e "# ${RED}VMSSR 多功能机场脚本${PLAIN}"
-    echo -e "# ${GREEN}作者${PLAIN}: HuTuTu"
-    echo -e "# ${GREEN}网址${PLAIN}: https://www.vmssr.co"
+    echo -e "# ${RED}Hex 多功能机场脚本${PLAIN}"
+    echo -e "# ${GREEN}作者${PLAIN}: HuTu"
+    echo -e "# ${GREEN}网址${PLAIN}: https://www.hu.tu"
     echo "#############################################################"
 
     echo -e "  ${GREEN}1.${PLAIN}   替换XrayR DNS解锁地址"
